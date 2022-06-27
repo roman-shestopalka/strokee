@@ -8,20 +8,21 @@ class StrokeeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(),
       title: 'Strokee',
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en', ''), // English, no country code
         Locale('uk', 'UA'), // Ukrainian, no country code
       ],
       // TODO: Add Authorization
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }
