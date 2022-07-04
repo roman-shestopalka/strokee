@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:strokee/presentation/common/app_text_styles.dart';
+import 'package:strokee/presentation/common/app_colors.dart';
 import 'package:strokee/presentation/common/ui/caption_widget.dart';
 import 'package:strokee/presentation/common/ui/ui_cards.dart';
 
@@ -41,7 +41,8 @@ class UiLine extends StatelessWidget {
           width: 250,
           height: 5,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30), color: Colors.white)),
+              borderRadius: BorderRadius.circular(30),
+              color: AppColors.uiColor)),
     );
   }
 }

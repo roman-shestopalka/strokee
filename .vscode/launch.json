@@ -9,7 +9,10 @@
             "name": "iOS",
             "request": "launch",
             "type": "dart",
-            "deviceId": "61FDFE11-06AA-445C-98D3-0438AC07C217"
+            "deviceId": "36ECFCE8-ED47-49D8-900D-5B74BDAE559C",
+            "args": [
+                "--no-sound-null-safety"
+            ]
         }
 
     ]

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:strokee/presentation/common/app_text_styles.dart';
 
 class UiCard extends StatelessWidget {
@@ -19,7 +17,8 @@ class UiCard extends StatelessWidget {
         width: 350,
         height: 140,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30), color: Colors.white),
+            borderRadius: BorderRadius.circular(30),
+            color: const Color(0xE02F2F2F)),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
@@ -41,18 +40,8 @@ class UiCard extends StatelessWidget {
                           CardCont(
                               cardItem: 'Reading books',
                               colorItem: Colors.yellow),
-                          CardCont(cardItem: 'sleep', colorItem: Colors.orange)
                         ],
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          CardCont(cardItem: 'English', colorItem: Colors.red),
-                          CardCont(
-                              cardItem: 'Texting whith PM',
-                              colorItem: Colors.yellow)
-                        ],
-                      )
                     ],
                   ),
                 ],
@@ -112,10 +101,7 @@ class CardCont extends StatelessWidget {
             padding: const EdgeInsets.only(
               left: 10,
             ),
-            child: Text(
-              cardItem,
-              style: AppTextStyles.defaultTextStyle,
-            ),
+            child: Text(cardItem, style: AppTextStyles.defaultTextStyle),
           )
         ],
       ),

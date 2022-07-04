@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class AppAssets {
   AppAssets._();
 
@@ -7,6 +5,7 @@ class AppAssets {
   static const icHome = 'assets/icons/ic_home.png';
   static const icArchive = 'assets/icons/ic_archive.png';
   static const icSettings = 'assets/icons/ic_settings.png';
+  static const icAvatar = 'assets/icons/avatar.jpeg';
 
   // active icon
   static const icHomeAc = 'assets/icons/ic_home_ac.png';

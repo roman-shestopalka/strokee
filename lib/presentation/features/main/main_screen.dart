@@ -4,6 +4,7 @@ import 'package:strokee/presentation/features/archive/achive_screen.dart';
 
 import 'package:strokee/presentation/features/home/home_screen.dart';
 import 'package:strokee/presentation/features/settings/settings_screen.dart';
+import 'package:strokee/presentation/features/task/add_task_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -18,11 +19,12 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     // app screens
-    HomeScreen(),
-    ArchiveScreen(),
-    SettingsScreen(),
+    const HomeScreen(title: 'Home'),
+    const ArchiveScreen(),
+    const SettingsScreen(),
+    const AddTaskScreen()
   ];
 
   @override
@@ -32,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color(0xff00467F), Color(0xffA5CC82)])),
+              colors: [Color(0xff101010), Color(0x009C9C9C)])),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: _widgetOptions.elementAt(_selectedIndex),
@@ -42,10 +44,12 @@ class _MainScreenState extends State<MainScreen> {
             topRight: Radius.circular(30.0),
           ),
           child: BottomNavigationBar(
+            backgroundColor: const Color.fromARGB(194, 47, 47, 47),
             type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: false,
             unselectedItemColor: Colors.grey,
+
             //selectedLabelStyle: AppTextStyle.navBarStyle,
             iconSize: 30,
             items: const <BottomNavigationBarItem>[
@@ -63,7 +67,7 @@ class _MainScreenState extends State<MainScreen> {
               )
             ],
             currentIndex: _selectedIndex,
-            selectedItemColor: Colors.green,
+            selectedItemColor: const Color(0xFFCD43F0),
             onTap: _onItemTapped,
           ),
         ),

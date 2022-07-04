@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:strokee/presentation/features/main/main_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -9,7 +10,12 @@ class StrokeeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(),
+      theme: ThemeData(
+          useMaterial3: true,
+          appBarTheme: const AppBarTheme(
+              systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarBrightness: Brightness.dark,
+          ))),
       title: 'Strokee',
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -21,7 +27,6 @@ class StrokeeApp extends StatelessWidget {
         Locale('en', ''), // English, no country code
         Locale('uk', 'UA'), // Ukrainian, no country code
       ],
-      // TODO: Add Authorization
       home: const MainScreen(),
     );
   }

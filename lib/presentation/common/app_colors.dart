@@ -4,7 +4,10 @@ class AppColors {
   AppColors._();
 
   // main app color
-  static const mainColor = Color(0xff518E7E);
+  static const mainColor = Color(0xFFD42AFF);
+
+  // ui colors
+  static const uiColor = Color(0xFF424242);
 
   // point colors
   static const ornPointColor = Color(0xffFF842C);
