@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:strokee/presentation/common/app_colors.dart';
+import 'package:strokee/presentation/common/app_text_styles.dart';
 import 'package:strokee/presentation/common/ui/ui_cards.dart';
 import 'package:strokee/presentation/features/task/add_task_screen.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: const Color.fromARGB(225, 47, 47, 47)),
+                        color: AppColors.uiColor),
                     width: 390,
                     height: 390,
                     child: const Padding(
@@ -93,10 +94,10 @@ class TaskBtn extends StatelessWidget {
                 MaterialPageRoute(
                     builder: ((context) => const AddTaskScreen())));
           },
-          backgroundColor: const Color(0xFF2F2F2F),
+          backgroundColor: AppColors.uiColor,
           child: const Icon(
             Icons.task_alt,
-            color: Color(0xFFD42AFF),
+            color: AppColors.mainColor,
           ),
         ),
       ),
@@ -114,16 +115,12 @@ class Calendar extends StatelessWidget {
     return TableCalendar(
         headerVisible: false,
         calendarStyle: const CalendarStyle(
-            todayTextStyle: TextStyle(color: Colors.white, fontSize: 16),
-            weekendTextStyle: TextStyle(color: Color(0xFFB5B5B5), fontSize: 16),
-            defaultTextStyle: TextStyle(color: Color(0xFFB5B5B5), fontSize: 16),
-            outsideTextStyle: TextStyle(color: Color(0xFFCD43F0))),
+            todayTextStyle: AppTextStyles.defaultTextStyleGr,
+            weekendTextStyle: AppTextStyles.defaultTextStyleGr,
+            defaultTextStyle: AppTextStyles.defaultTextStyleGr,
+            outsideTextStyle: TextStyle(color: AppColors.mainColor)),
         focusedDay: DateTime.now(),
         firstDay: DateTime.utc(2010, 10, 16),
         lastDay: DateTime.utc(2040, 3, 14));
   }
 }
-
-
-//TODO: refactoring
-//TODO: custom calendar

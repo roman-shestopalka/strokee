@@ -1,3 +1,4 @@
+import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:strokee/data/hive/hive_model/task_form_widget_model.dart';
@@ -26,7 +27,7 @@ class TaskModalWidgetBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<bool> _selections = List.generate(3, (index) => false);
+    List<bool> selections = List.generate(3, (index) => false);
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -72,31 +73,23 @@ class TaskModalWidgetBody extends StatelessWidget {
                   ),
                 ),
                 const Padding(
+                    padding: EdgeInsets.only(top: 30),
+                    child: TaskCustomWidget(
+                      name: 'Priority',
+                      widget: Icon(
+                        Icons.priority_high_outlined,
+                        color: AppColors.mainColor,
+                      ),
+                    )),
+                const Padding(
                   padding: EdgeInsets.only(top: 30),
                   child: TaskCustomWidget(
-                    name: 'Priority',
+                    name: 'Time',
                     widget: Icon(
-                      Icons.radio_button_checked_outlined,
-                      color: Colors.green,
+                      Icons.today_outlined,
+                      color: AppColors.mainColor,
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 30,
-                  ),
-                  child: TaskCustomWidget(
-                      name: 'Time',
-                      widget: ElevatedButton(
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(AppColors.uiColor)),
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.more_time,
-                          color: AppColors.mainColor,
-                        ),
-                      )),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 30),
@@ -109,15 +102,36 @@ class TaskModalWidgetBody extends StatelessWidget {
                   ),
                 ),
 
-                ToggleButtons(
-                  children: [
-                    Icon(Icons.travel_explore),
-                    Icon(Icons.money),
-                    Icon(Icons.upgrade),
-                  ],
-                  isSelected: _selections,
-                  selectedColor: AppColors.mainColor,
-                  borderRadius: BorderRadius.circular(30),
+                Padding(
+                  padding: const EdgeInsets.only(top: 25),
+                  child: DefaultTabController(
+                      length: 3,
+                      child: Column(
+                        children: [
+                          ButtonsTabBar(
+                              backgroundColor: AppColors.mainColor,
+                              unselectedBackgroundColor:
+                                  AppColors.textFieldColr,
+                              splashColor: AppColors.splashColor,
+                              labelStyle: AppTextStyles.defaultTextStyleWh,
+                              unselectedLabelStyle:
+                                  AppTextStyles.defaultTextStyleGr,
+                              tabs: const [
+                                Tab(
+                                  icon: Icon(Icons.travel_explore),
+                                  text: 'Travel',
+                                ),
+                                Tab(
+                                  icon: Icon(Icons.money),
+                                  text: 'Finance',
+                                ),
+                                Tab(
+                                  icon: Icon(Icons.person_outlined),
+                                  text: 'Me',
+                                )
+                              ])
+                        ],
+                      )),
                 )
               ],
             ),
@@ -146,7 +160,11 @@ class TaskCustomWidget extends StatelessWidget {
           name,
           style: AppTextStyles.subHeaderTextStyle,
         ),
-        widget,
+        ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(AppColors.uiColor)),
+            onPressed: () {},
+            child: widget),
       ],
     );
   }
@@ -172,18 +190,18 @@ class TextFieldWidget extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-            color: const Color.fromARGB(173, 47, 47, 47),
+            color: AppColors.textFieldColr,
             borderRadius: BorderRadius.circular(20)),
         child: Padding(
           padding: const EdgeInsets.only(top: 5, bottom: 5, left: 15),
           child: TextField(
             maxLines: maxLine,
-            style: AppTextStyles.defaultTextStyle,
+            style: AppTextStyles.defaultTextStyleGr,
             cursorColor: AppColors.mainColor,
             decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: hintText,
-                hintStyle: AppTextStyles.defaultTextStyle),
+                hintStyle: AppTextStyles.defaultTextStyleGr),
             onChanged: (value) =>
                 TaskWidgetModelProvider.read(context)?.model.titleName = value,
             onEditingComplete: () =>
