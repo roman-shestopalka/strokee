@@ -30,16 +30,14 @@ class UiCard extends StatelessWidget {
                   CardHeader(headerCardText: headerName),
                   Row(
                     children: [
+                      //TODO: Column for more subtask (in future update)
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           CardCont(
-                            cardItem: 'Launch',
+                            cardItem: 'Прочитати книжку до 30 сторінки',
                             colorItem: Colors.green,
                           ),
-                          CardCont(
-                              cardItem: 'Reading books',
-                              colorItem: Colors.yellow),
                         ],
                       ),
                     ],
@@ -101,7 +99,7 @@ class CardCont extends StatelessWidget {
             padding: const EdgeInsets.only(
               left: 10,
             ),
-            child: Text(cardItem, style: AppTextStyles.defaultTextStyle),
+            child: Text(cardItem, style: AppTextStyles.defaultTextStyleGr),
           )
         ],
       ),

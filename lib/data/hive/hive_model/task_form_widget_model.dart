@@ -7,7 +7,6 @@ class TaskWidgetModel {
   var titleName = ' ';
 
   void taskSave(BuildContext context) async {
-    print(titleName);
     if (titleName.isEmpty) return;
     if (!Hive.isAdapterRegistered(1)) {
       Hive.registerAdapter(TaskAdapter());
