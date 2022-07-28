@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:strokee/presentation/common/app_assets.dart';
+import 'package:strokee/presentation/common/app_colors.dart';
 import 'package:strokee/presentation/features/archive/achive_screen.dart';
 
 import 'package:strokee/presentation/features/home/home_screen.dart';
@@ -67,7 +68,7 @@ class _MainScreenState extends State<MainScreen> {
               )
             ],
             currentIndex: _selectedIndex,
-            selectedItemColor: const Color(0xFFCD43F0),
+            selectedItemColor: AppColors.mainColor,
             onTap: _onItemTapped,
           ),
         ),

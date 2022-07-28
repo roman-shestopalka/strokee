@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:strokee/presentation/common/app_colors.dart';
 import 'package:strokee/presentation/common/app_text_styles.dart';
-import 'package:strokee/presentation/common/ui/ui_cards.dart';
+import 'package:strokee/presentation/common/widgets/home_container.dart';
+import 'package:strokee/presentation/common/widgets/list_builder_widget.dart';
 import 'package:strokee/presentation/features/task/add_task_screen.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 //UI
 import 'package:strokee/presentation/common/ui/caption_widget.dart';
-// import 'package:strokee/presentation/common/ui/ui_cards.dart';
 
 class HomeScreen extends StatefulWidget {
   final String title;
@@ -41,29 +41,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     text: 'Home',
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: AppColors.uiColor),
+                const Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: MainContainer(
+                    widget: Calendar(),
                     width: 390,
                     height: 390,
-                    child: const Padding(
-                      padding: EdgeInsets.all(30),
-                      child: Calendar(),
-                    ),
                   ),
                 ),
-                SizedBox(
-                    height: 150,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: const [
-                        UiCard(headerName: 'Task'),
-                        UiCard(headerName: 'Notes')
-                      ],
-                    )),
+                ListBuildWidget(),
                 const TaskBtn()
               ],
             ),
@@ -115,7 +101,9 @@ class Calendar extends StatelessWidget {
     return TableCalendar(
         headerVisible: false,
         calendarStyle: const CalendarStyle(
-            todayTextStyle: AppTextStyles.defaultTextStyleGr,
+            todayDecoration: BoxDecoration(
+                shape: BoxShape.circle, color: AppColors.todayBoxColor),
+            todayTextStyle: AppTextStyles.todayTextStyle,
             weekendTextStyle: AppTextStyles.defaultTextStyleGr,
             defaultTextStyle: AppTextStyles.defaultTextStyleGr,
             outsideTextStyle: TextStyle(color: AppColors.mainColor)),

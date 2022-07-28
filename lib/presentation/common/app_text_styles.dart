@@ -27,6 +27,18 @@ class AppTextStyles {
       fontSize: 18,
       color: Color(0xFFDEDEDE));
 
+  static const todayTextStyle = TextStyle(
+      fontFamily: 'RobotoCondensed',
+      fontWeight: FontWeight.normal,
+      fontSize: 20,
+      color: Color(0xFFDEDEDE));
+
+  static const errorTextStyle = TextStyle(
+      fontFamily: 'RobotoCondensed',
+      fontWeight: FontWeight.normal,
+      fontSize: 15,
+      color: Color(0xCFFF0000));
+
   static const navBarStyle = TextStyle(
       fontFamily: 'RobotoCondensed', fontWeight: FontWeight.bold, fontSize: 18);
 }
